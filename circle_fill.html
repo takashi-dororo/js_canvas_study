@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Circle_fill</title>
+</head>
+<body>
+  <h1>Circle_fill</h1>
+  <canvas id="canvas"></canvas>
+  <script>
+    onload = function() {
+      draw();
+    };
+    function draw() {
+      var canvas = document.getElementById('canvas');
+      if ( ! canvas || ! canvas.getContext ) {
+        return false;
+      }
+      var canvas_context = canvas.getContext('2d');
+      canvas_context.beginPath();
+      canvas_context.fillStyle = 'orange';
+      canvas_context.arc(80, 80, 60, 0, Math.PI*2, false);
+      canvas_context.stroke();
+      canvas_context.fill();
+    }
+  </script>
+</body>
+</html>

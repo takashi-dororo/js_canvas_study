@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>正方形</title>
+</head>
+<body>
+  <h1>正方形</h1>
+  <canvas id="canvas"></canvas>
+  <script>
+    onload = function() {
+      draw();
+    };
+    function draw() {
+      // canvas要素のノードオブジェクト
+      var canvas = document.getElementById('canvas');
+      // canvasの要素の存在をチェックとcanvas未対応ブラウザへの対処
+      if ( ! canvas || ! canvas.getContext ) {
+        return false;
+      }
+      // 2Dコンテキスト
+      var canvas_context = canvas.getContext('2d');
+      // 四角を描く
+      canvas_context.beginPath();      // 線を描く宣言
+      canvas_context.moveTo(20, 20);   // 描き始める位置を宣言
+      canvas_context.lineTo(150, 20);  // 引きたい線の終点を宣言
+      canvas_context.lineTo(150, 150); // 引きたい線の終点を宣言
+      canvas_context.lineTo(20, 150);  // 引きたい線の終点を宣言
+      canvas_context.closePath();      // 描いた線を閉じる
+      canvas_context.stroke();         // 完成した図形を線で描画
+    }
+  </script>
+</body>
+</html>
