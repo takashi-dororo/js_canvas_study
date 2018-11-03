@@ -14,17 +14,18 @@
       if ( ! canvas_elm || ! canvas_elm.getContext ) {
         return false;
       }
-      // var firstX = canvas_context.canvas.width * Math.random(), //ランダムX座標
-      //     firstY = canvas_context.canvas.height * Math.random(); //ランダムY座標
+      var firstX = canvas_context.canvas.width * Math.random(), //ランダムX座標
+          firstY = canvas_context.canvas.height * Math.random(); //ランダムY座標
       canvas_context.fillStyle = 'rgba(0, 0, 0, 1)';
       // canvas上の指定の短形を、現在の塗り潰しスタイルを使って、塗りつぶす
       canvas_context.fillRect(0, 0, canvas_context.canvas.width, canvas_context.canvas.height);
       canvas_context.beginPath();
-      // canvas_context.lineWidth = Math.random() * 20; //線の幅を指定
-      canvas_context.lineWidth = "50";
-      // canvas_context.moveTo(firstX, firstY); //描き始める位置をランダムに指定
+      canvas_context.lineWidth = Math.random() * 20; //線の幅を指定
+      // canvas_context.lineWidth = "50";
+      canvas_context.moveTo(firstX, firstY); //描き始める位置をランダムに指定
       // 開始位置を固定
-      canvas_context.moveTo(180, 120);
+      // canvas_context.moveTo(100, 100);
+      // 円形にする
       var lastX = canvas_context.canvas.width * Math.random();
       var lastY = canvas_context.canvas.height * Math.random();
       // ベジェ曲線のサブパスを作成
@@ -32,14 +33,22 @@
                                    canvas_context.canvas.height * Math.random(),
                                    canvas_context.canvas.width * Math.random(),
                                    canvas_context.canvas.height * Math.random(),
-                                   lastX, lastY);
+                                   // lastX, lastY);
+                                   // 100, 100); //moveTo(100, 100)と同じ座標帰る？
+                                   firstX, firstY);
+
       var r = Math.random() * 256,
           g = Math.random() * 256,
           b = Math.random() * 256;
-      canvas_context.strokeStyle = "rgb(" + r + "," + g + "," + b + ")"; //線の色を指定
+      // canvas_context.strokeStyle = "rgb(" + r + "," + g + "," + b + ")"; //線の色を指定
+      // 線の色をレッド一色に
+      canvas_context.strokeStyle = "red";
+      // 塗りつぶす
+      canvas_context.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
       canvas_context.shadowColor = 'white'; //図形に影の色を指定
       canvas_context.shadowBlur = Math.random() * 15; //ぼかし範囲を指定
       canvas_context.stroke(); //完成した図を線で描画
+      canvas_context.fill(); //塗りつぶす
     }
     onload = function() {
       line();

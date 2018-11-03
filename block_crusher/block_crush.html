@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ブロック崩し</title>
+  <script type="text/javascript" src="panel.js"></script>
+  <style>
+    canvas {
+      background-color: #fff;
+      border: 1px solid #000;
+      display: block;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    .opreation-btn {
+      padding: 30px;
+      text-align: center;
+    }
+    .btn {
+      background-color: blue;
+      color: white;
+      font-size: 20px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ブロック崩し</h1>
+  <div class="game-area">
+    <canvas id="canvas_elm" width="800" height="800"></canvas>
+  </div>
+  <div class="opreation-btn">
+    <button id="start" class="btn">START</button>
+    <button id="stop" class="btn">STOP</button>
+  </div>
+</body>
+</html>
