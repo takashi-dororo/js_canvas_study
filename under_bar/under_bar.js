@@ -12,6 +12,7 @@ window.onload = function() {
       color = "rgb(" + r + "," + g + "," + b + ")",
       score = 0, // 得点
       lifes = 3; // ライフ
+  let myReq;
   // blockの設定値
   const block_padding = 10,
         block_offset_top = 30,
@@ -151,7 +152,11 @@ window.onload = function() {
     }
     x += dx;
     y += dy;
-    requestAnimationFrame(draw);
+    myReq = requestAnimationFrame(draw);
+  }
+  function stop() {
+    cancelAnimationFrame(myReq);
   }
   document.getElementById('start').addEventListener('click', draw, false);
+  document.getElementById('stop').addEventListener('click', stop, false);
 }
